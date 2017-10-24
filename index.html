@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Electron JS: Desktop Apps - System Info App</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container bg-light">
+        <h2 class="display-4 color-white">Electron JS: Desktop Apps - System Info App</h2>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <div id="output"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        
+        /// set the HTML
+        let output = 
+        `
+            <h3 class="display-6">App Version</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Node: ${process.versions.node}</li>
+                <li class="list-group-item">Electron: ${process.versions.electron}</li>
+                <li class="list-group-item">Chrome: ${process.versions.chrome}</li>
+            </ul>
+            <br />
+            <h3 class="display-6">System Specs</h3>
+            <ul class="list-group">
+                <li class="list-group-item">System Arch: ${process.arch}</li>
+                <li class="list-group-item">Pre-processor Identifier: ${process.env.PROCESSOR_IDENTIFIER}</li>
+                <li class="list-group-item">Printer: ${process.env.PRINTER}</li>
+            </ul>
+            <br />
+            <h3 class="display-6">System Memory</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Total: ${process.getSystemMemoryInfo().total}</li>
+                <li class="list-group-item">Free: ${process.getSystemMemoryInfo().free}</li>
+                <li class="list-group-item">Swap Total: ${process.getSystemMemoryInfo().swapTotal}</li>
+                <li class="list-group-item">Swap Free: ${process.getSystemMemoryInfo().swapFree}</li>
+            </ul>
+            <br />
+        `;
+        document.getElementById("output").innerHTML = output;
+    </script>
+    <script>
+        require("./renderer.js")
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "systeminfoapp",
+  "version": "1.0.0",
+  "description": "System Info App using Electron JS: HTML, CSS, JS based Multi-platform Desktop Apps",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "electron"
+  ],
+  "author": "Mohammed Rafi Kaleem",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^1.7.9"
+  }
+}
